@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-for n in range(0, 100):
+for n in range(100):
     if n == 99:
-        print(f"{99:02d}", end='\n')
-        break
-    print(f"{n:02d}, ", end="")
+        print("{:02d}".format(n), end='\n')
+    else:
+        print("{:02d}".format(n), end=", ")
