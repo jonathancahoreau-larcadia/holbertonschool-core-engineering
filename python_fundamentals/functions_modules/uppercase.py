@@ -4,3 +4,4 @@ def uppercase(s):
         print("{:c}".format(
             ord(c) - 32 if 'a' <= c <= 'z' else ord(c)
         ), end="")
+print()
