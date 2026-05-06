@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-for c in "abcdefghijklmnopqrstuvwxyz":
-    if c not in ("e", "q"):
-        print(c, end="")
+for alphabet in range(ord('a'), ord('z') + 1):
+    if not alphabet == ord('e') and not alphabet == ord('q'):
+        print("{:c}".format(alphabet), end="")
 print()
