@@ -8,4 +8,4 @@ def best_score(a_dictionary):
         if a_dictionary[keys] > max_value:
             max_value = a_dictionary[keys]
             key_max = keys
-    return key_max, max_value
+    return key_max
