@@ -3,3 +3,4 @@
 - Python - Control Flow
 - Python - Functions & Modularity
 - Python - Core Data Structures
+- Python - Exception Handling
