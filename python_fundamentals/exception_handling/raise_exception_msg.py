@@ -1,3 +1,3 @@
-
+#!/usr/bin/env python3
 def raise_exception_msg(message=""):
-    raise NameError("it is a NameError")
+    raise NameError(message)
