@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
 Module 6-square
-Définit une classe Square avec gestion de la position et affichage personnalisé.
+Définit une classe Square avec gestion de la position
+et affichage personnalisé.
 """
 
+
 class Square:
-    """Classe représentant un carré avec gestion de la position et affichage personnalisé."""
+    """Classe représentant un carré avec gestion de la
+        position et affichage personnalisé."""
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
@@ -49,7 +52,6 @@ class Square:
                     print("{}".format("#"), end="")
                 print()
 
-
     def __str__(self):
         """Retourne une représentation en chaîne du carré."""
         design = ""
@@ -63,5 +65,3 @@ class Square:
             design += "\n"
 
         return design
-
-

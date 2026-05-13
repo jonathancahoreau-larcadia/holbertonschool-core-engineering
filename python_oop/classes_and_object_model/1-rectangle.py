@@ -4,6 +4,7 @@ Module 1-rectangle
 Définit une classe Rectangle avec gestion de la largeur et de la hauteur.
 """
 
+
 class Rectangle:
     """Classe représentant un rectangle avec largeur et hauteur."""
     def __init__(self, width=0, height=0):

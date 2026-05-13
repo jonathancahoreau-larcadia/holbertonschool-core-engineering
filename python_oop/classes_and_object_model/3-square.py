@@ -4,6 +4,7 @@ Module 3-square
 Définit une classe Square avec méthode area.
 """
 
+
 class Square:
     """Classe représentant un carré avec méthode area."""
     def __init__(self, size=0):

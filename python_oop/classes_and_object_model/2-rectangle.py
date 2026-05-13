@@ -4,6 +4,7 @@ Module 2-rectangle
 Définit une classe Rectangle avec méthodes area et perimeter.
 """
 
+
 class Rectangle:
     """Classe représentant un rectangle avec méthodes area et perimeter."""
     def __init__(self, width=0, height=0):

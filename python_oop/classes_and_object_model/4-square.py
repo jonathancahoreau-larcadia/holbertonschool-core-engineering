@@ -4,6 +4,7 @@ Module 4-square
 Définit une classe Square avec accesseurs et mutateurs pour size.
 """
 
+
 class Square:
     """Classe représentant un carré avec accesseurs et mutateurs pour size."""
     def __init__(self, size=0):

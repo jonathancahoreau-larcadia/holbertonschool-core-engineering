@@ -4,6 +4,7 @@ Module 5-square
 Définit une classe Square avec méthode my_print.
 """
 
+
 class Square:
     """Classe représentant un carré avec méthode my_print."""
     def __init__(self, size=0):
