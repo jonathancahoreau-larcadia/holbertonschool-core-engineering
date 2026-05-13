@@ -60,8 +60,5 @@ class Square:
             design += "\n"
 
         for _ in range(self.__size):
-            design += " " * self.__position[0]
-            design += "#" * self.__size
-            design += "\n"
-
+            design += " " * self.__position[0] + "#" * self.__size + "\n"
         return design
