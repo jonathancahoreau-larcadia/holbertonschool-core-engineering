@@ -50,7 +50,6 @@ class Square:
                 print()
                 for row in range(self.__position[0]):
                     print("{}".format("#"), end="")
-                print()
 
     def __str__(self):
         """Retourne une représentation en chaîne du carré."""
