@@ -45,14 +45,18 @@ class Square:
         """Affiche le carré avec la position donnée."""
         if self.__size == 0:
             print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-                for row in range(self.__position[0]):
-                    print("{}".format("#"), end="")
+            return
+
+        for _ in range(self.__position[1]):
+            print()
+        for _ in range(self.__size):
+            print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
         """Retourne une représentation en chaîne du carré."""
+        if self.__size == 0:
+            return
+
         design = ""
 
         for _ in range(self.__position[1]):
@@ -60,4 +64,4 @@ class Square:
 
         for _ in range(self.__size):
             design += " " * self.__position[0] + "#" * self.__size + "\n"
-        return design
+        return design.rstrip()
