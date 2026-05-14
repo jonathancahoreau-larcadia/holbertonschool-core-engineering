@@ -53,15 +53,15 @@ class Square:
             print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
-        """Retourne une représentation en chaîne du carré."""
         if self.__size == 0:
             return ""
 
-        design = ""
+        lines = []
 
         for _ in range(self.__position[1]):
-            design += "\n"
+            lines.append("")
 
         for _ in range(self.__size):
-            design += " " * self.__position[0] + "#" * self.__size + "\n"
-        return design.rstrip()
+            lines.append(" " * self.__position[0] + "#" * self.__size)
+
+        return "\n".join(lines)
