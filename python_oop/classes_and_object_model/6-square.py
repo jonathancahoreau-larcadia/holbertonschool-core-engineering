@@ -55,7 +55,7 @@ class Square:
     def __str__(self):
         """Retourne une représentation en chaîne du carré."""
         if self.__size == 0:
-            return
+            return ""
 
         design = ""
 
