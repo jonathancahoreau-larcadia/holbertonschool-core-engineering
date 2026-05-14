@@ -56,12 +56,14 @@ class Square:
         if self.__size == 0:
             return ""
 
-        lines = []
+        result = ""
 
+        # vertical offset
         for _ in range(self.__position[1]):
-            lines.append("")
+            result += "\n"
 
+        # square lines
         for _ in range(self.__size):
-            lines.append(" " * self.__position[0] + "#" * self.__size)
+            result += " " * self.__position[0] + "#" * self.__size + "\n"
 
-        return "\n".join(lines)
+        return result
