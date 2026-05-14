@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-This module defines abstract and concrete shape classes with area and perimeter methods.
+This module defines abstract and concrete shape classes
+with area and perimeter methods.
 """
 
 from abc import ABC, abstractmethod
+
 
 class Shape(ABC):
     """
@@ -60,6 +62,7 @@ class Circle(Shape):
         """
         return 2 * 3.14 * self.radius
 
+
 class Rectangle(Shape):
     """
     Rectangle class, subclass of Shape.
@@ -94,6 +97,7 @@ class Rectangle(Shape):
             float: The perimeter of the rectangle.
         """
         return 2 * (self.width + self.height)
+
 
 def shape_info(shape):
     """
