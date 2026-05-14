@@ -3,8 +3,6 @@
 This module defines the Rectangle class, inheriting from BaseGeometry.
 """
 
-from turtle import width
-
 
 class BaseGeometry:
     """
