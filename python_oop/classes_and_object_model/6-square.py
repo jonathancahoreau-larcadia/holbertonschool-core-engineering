@@ -1,27 +1,23 @@
 #!/usr/bin/env python3
-"""
-Module 6-square
-Définit une classe Square avec gestion de la position
-et affichage personnalisé.
-"""
+"""6-square.py: Square class with position and string representation."""
 
 
 class Square:
-    """Classe représentant un carré avec gestion de la
-        position et affichage personnalisé."""
+    """Represent a square with size and position."""
+
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Retourne la taille du carré."""
+        """Retrieve the size."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Définit la taille du carré."""
-        if type(value) is not int:
+        """Set the size with validation."""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
@@ -29,41 +25,46 @@ class Square:
 
     @property
     def position(self):
-        """Retourne la position du carré."""
+        """Retrieve the position."""
         return self.__position
 
     @position.setter
     def position(self, value):
-        """Définit la position du carré."""
-        if type(value) is not tuple or len(value) != 2 or type(
-            value[0]) is not int or type(value[1]) is not int or value[
-                0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
+        """Set the position with validation."""
+        if (not isinstance(value, tuple) or
+            len(value) != 2 or
+            not all(isinstance(n, int) for n in value) or
+                not all(n >= 0 for n in value)):
+            raise TypeError("position must be a tuple of 2 positive integer")
         self.__position = value
 
     def my_print(self):
-        """Affiche le carré avec la position donnée."""
-        if self.__size == 0:
+        """Print the square using the # character."""
+        if self.size == 0:
             print()
             return
 
-        for _ in range(self.__position[1]):
+        # vertical offset
+        for _ in range(self.position[1]):
             print()
-        for _ in range(self.__size):
-            print(" " * self.__position[0] + "#" * self.__size)
+
+        line = " " * self.position[0] + "#" * self.size
+        for _ in range(self.size):
+            print(line)
 
     def __str__(self):
-        if self.__size == 0:
+        """Return the string representation of
+        the square (same as my_print)."""
+        if self.size == 0:
             return ""
 
-        result = ""
-
+        lines = []
         # vertical offset
-        for _ in range(self.__position[1]):
-            result += "\n"
+        for _ in range(self.position[1]):
+            lines.append("")
 
-        # square lines
-        for _ in range(self.__size):
-            result += " " * self.__position[0] + "#" * self.__size + "\n"
+        line = " " * self.position[0] + "#" * self.size
+        for _ in range(self.size):
+            lines.append(line)
 
-        return result.rstrip()
+        return "\n".join(lines)
