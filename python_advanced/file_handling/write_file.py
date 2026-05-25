@@ -5,6 +5,7 @@ This module provides a helper function to open a file in write mode
 and write a string to it using UTF-8 encoding.
 """
 
+
 def write_file(filename="", text=""):
     """Write a string to a text file.
 

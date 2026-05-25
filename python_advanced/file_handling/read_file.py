@@ -6,6 +6,7 @@ read its contents using UTF-8 encoding, and print them without adding
 extra newline characters.
 """
 
+
 def read_file(filename=""):
     """Read a text file and print its contents.
 

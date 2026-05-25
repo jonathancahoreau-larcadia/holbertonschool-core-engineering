@@ -5,6 +5,7 @@ This module defines a helper function that opens a file in append mode
 and writes a string to it using UTF-8 encoding.
 """
 
+
 def append_write(filename="", text=""):
     """Append a string to a text file.
 
