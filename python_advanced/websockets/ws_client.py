@@ -21,7 +21,7 @@ async def connect_and_send(uri, message):
 async def main():
     """Run the WebSocket client."""
     uri = os.getenv("WS_URI", "ws://localhost:8765")
-    message = "Hello WebSocket"
+    message = os.getenv("WS_MESSAGE", "Hello WebSocket")
 
     if len(sys.argv) > 1:
         message = sys.argv[1]
