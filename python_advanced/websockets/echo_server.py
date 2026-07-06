@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Simple asyncio WebSocket echo server.
 
 This module implements a minimal WebSocket server using the

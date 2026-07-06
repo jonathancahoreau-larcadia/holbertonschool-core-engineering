@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Simple asyncio WebSocket client.
 
 This module demonstrates a minimal WebSocket client using the
