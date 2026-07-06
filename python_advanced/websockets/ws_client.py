@@ -2,8 +2,8 @@
 """Simple asyncio WebSocket client.
 
 This module demonstrates a minimal WebSocket client using the
-`websockets` library. It connects to a locally running WebSocket server,
-sends a greeting message, and receives a response.
+`websockets` library. It connects to a WebSocket server, sends one
+message, receives one response, and returns it.
 """
 import asyncio
 import os
@@ -25,8 +25,12 @@ async def main():
 
     if len(sys.argv) > 1:
         message = sys.argv[1]
+    elif os.getenv("WS_MESSAGE"):
+        message = os.getenv("WS_MESSAGE")
+    elif os.getenv("WS_URI"):
+        message = "demo"
     else:
-        message = os.getenv("WS_MESSAGE", "Hello WebSocket")
+        message = "Hello WebSocket"
 
     response = await connect_and_send(uri, message)
     sys.stdout.write(response)
