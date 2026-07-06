@@ -1,29 +1,27 @@
 #!/usr/bin/env python3
-"""Validation WebSocket server.
-
-This module provides a minimal WebSocket server using the `websockets`
-library. It listens on localhost:8765 and validates incoming messages:
-- empty or whitespace-only messages are responded to with "ERR:EMPTY"
-- non-empty messages are echoed back prefixed with "OK:".
-
-Run this file as a script to start the server.
-"""
-
+"""WebSocket server with basic message validation."""
 import asyncio
 from websockets.asyncio.server import serve
+from websockets.exceptions import ConnectionClosed
 
 
-async def echo(websocket):
-    async for message in websocket:
-        clean_message = message.strip()
-        if not clean_message:
-            await websocket.send("ERR:EMPTY")
-        else:
-            await websocket.send(f"OK:{clean_message}")
+async def connection_handler(websocket):
+    """Handle messages from one client and validate empty messages."""
+    try:
+        async for message in websocket:
+            clean_message = message.strip()
+
+            if not clean_message:
+                await websocket.send("ERR:EMPTY")
+            else:
+                await websocket.send(f"OK:{clean_message}")
+    except ConnectionClosed:
+        pass
 
 
 async def main():
-    async with serve(echo, "localhost", 8765):
+    """Start the validation WebSocket server."""
+    async with serve(connection_handler, "localhost", 8765):
         await asyncio.Future()
 
 
