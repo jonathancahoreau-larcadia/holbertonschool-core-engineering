@@ -12,19 +12,21 @@ from websockets.asyncio.client import connect
 
 
 async def connect_and_send(uri, message):
+    """Connect to a WebSocket server, send a message, and return response."""
     async with connect(uri) as websocket:
         await websocket.send(message)
         response = await websocket.recv()
-        return (response)
+        return response
 
 
 async def main():
     """Run the WebSocket client."""
     uri = os.getenv("WS_URI", "ws://localhost:8765")
-    message = os.getenv("WS_MESSAGE", "Hello WebSocket")
 
     if len(sys.argv) > 1:
         message = sys.argv[1]
+    else:
+        message = os.getenv("WS_MESSAGE", "Hello WebSocket")
 
     response = await connect_and_send(uri, message)
     sys.stdout.write(response)
