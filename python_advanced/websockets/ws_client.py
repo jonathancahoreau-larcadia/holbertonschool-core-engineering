@@ -6,17 +6,29 @@ This module demonstrates a minimal WebSocket client using the
 sends a greeting message, and receives a response.
 """
 import asyncio
+import os
+import sys
 from websockets.asyncio.client import connect
 
 
-async def connect_and_send():
-    message = "Hello WebSocket"
-
-    async with connect("ws://localhost:8765") as websocket:
+async def connect_and_send(uri, message):
+    async with connect(uri) as websocket:
         await websocket.send(message)
         response = await websocket.recv()
-        print(response)
+        return (response)
+
+
+async def main():
+    """Run the WebSocket client."""
+    uri = os.getenv("WS_URI", "ws://localhost:8765")
+    message = "Hello WebSocket"
+
+    if len(sys.argv) > 1:
+        message = sys.argv[1]
+
+    response = await connect_and_send(uri, message)
+    sys.stdout.write(response)
 
 
 if __name__ == "__main__":
-    asyncio.runconnect_and_send(())
+    asyncio.run(main())
