@@ -9,7 +9,7 @@ import asyncio
 from websockets.asyncio.client import connect
 
 
-async def main():
+async def connect_and_send():
     message = "Hello WebSocket"
 
     async with connect("ws://localhost:8765") as websocket:
@@ -19,4 +19,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.runconnect_and_send(())
